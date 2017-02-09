@@ -3,8 +3,8 @@ class RetrieveMedicalReportExtractor(object):
     Factory Class that instantiates the appriopriate class implementation of IInputDataFileExtractor
 
     '''
-    @static_method
-    def get_file_extractor(filename):
+    @classmethod
+    def get_file_extractor(cls, filename):
         pass
 
 
