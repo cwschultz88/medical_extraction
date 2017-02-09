@@ -10,3 +10,8 @@ Written on Mac OS - Code should work in a Linux environment
 
 Assumes all python scripts are called from the root of the repo, i.e. this directory level.
 
+To run a unit test:
+```
+python -m unittest tests.data.input_data_extractors_tests
+```
+
