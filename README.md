@@ -1,4 +1,4 @@
-# Extracting Medical Information out of Medical Free Response Reports
+# Extracting Patient Medical Information out of Unstructured Medical Reports
 
 Extracts patient information from unstructured medical report files. Currently supports medical reports in the following formats:
    1. txt
