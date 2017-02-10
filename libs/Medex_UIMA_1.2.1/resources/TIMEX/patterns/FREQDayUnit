@@ -1,0 +1,10 @@
+FREQDayUnit:
+//daily
+[Dd][Aa][Ii][Ll][Yy]
+//day
+[Dd][Aa][Yy]
+//week
+[Ww][Ee][Ee][Kk]
+//weekly
+[Ww][Ee][Ee][Kk][Ll][Yy]
+

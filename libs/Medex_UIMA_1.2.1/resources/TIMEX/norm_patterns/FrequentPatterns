@@ -1,0 +1,28 @@
+NormReUnit:
+day=>day
+week-end=>week-WE
+weekend=>week-WE
+week=>week
+month=>month
+quarter=>quarter
+year=>year
+decade=>decade
+century=>century
+// Plurals (not in reUnit)
+days=>day
+week-ends=>week-WE
+weekends=>week-WE
+weeks=>week
+months=>month
+quarters=>quarter
+years=>year
+decades=>decade
+// not in reUnit
+centuries=>century
+hour=>hour
+hours=>hour
+minute=>minute
+minutes=>minute
+trading day=>day
+trading days=>day
+

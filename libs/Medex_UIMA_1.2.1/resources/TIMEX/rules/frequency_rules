@@ -1,0 +1,239 @@
+FREQUENCY:
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// for frequency words like tid, bid
+expression="[Bb]\.?[Ii]\.?[Dd]\.?",val="R1P12H"
+
+expression="[Qq]\.?[Ii]\.?[Dd]\.?",val="R1P6H"
+expression="[Tt]\.?[Ii]\.?[Dd]\.?",val="R1P8H"
+expression="[Pp]\.?[Rr]\.?[Nn]\.?",val="R"
+expression="[Aa][Ss] [Nn][Ee][Ee][Dd][Ee][Dd]",val="R"
+
+expression="[Qq] [Dd][Aa][Ii][Ll][Yy]",val="R1P24H"
+expression="[Qq]\.?[ ]?[Dd][Aa][Yy]",val="R1P24H"
+expression="[Qq]\.?[ ]?[Dd]\.?",val="R1P24H"
+
+expression="[Qq]\.?[Hh]\.?[Ss]\.?",val="R1P24H"
+expression="[Hh]\.?[Ss]\.?",val="R1P24H"
+expression="[Qq]\.?[Hh]\.?",val="R1P1H"
+expression="[Bb][Ee][Dd][ ]*[Tt][Ii][Mm][Ee]",val="R1P24H"
+//qohs
+expression="[Qq]\.?[ ]?[Oo][ ]?[Hh]\.?[Ss]\.?",val="R1P48H"
+
+//qam and qpm
+expression="[Qq]\.?[ ]?[Aa]\.?[Mm]\.? [ ]?and [ ]?[Qq]\.?[ ]?[Pp]\.?[Mm]\.?",val="R1P12H"
+expression="[Qq]\.?[ ]?[Aa]\.?[Mm]\.?",val="R1P24H"
+expression="[Qq]\.?[ ]?[Pp]\.?[Mm]\.?",val="R1P24H"
+expression="\d+[ ]*[Aa]\.?[Mm]\.?|\d+[ ]*[Pp]\.?[Mm]\.?",val="R1P24H"
+expression="[Aa]\.?[Mm]\.?|[Pp]\.?[Mm]\.?",val="R1P24H"
+
+expression="[Qq]\.?[ ]?[Ww][Ee][Ee][Kk]",val="R1P1W"
+expression="[Qq]\.?[ ]?[Ww][Kk]",val="R1P1W"
+
+expression="[Qq]\.?[ ]?[Bb][Ee][Dd][ ]?[Tt][Ii][Mm][Ee]",val="R1P24H"
+expression="[Qq]\.?[ ]?[Mm][Oo][Nn][Tt][Hh]",val="R1P1MONTH"
+//q.o.d.
+expression="[Qq]\.?[Oo]\.?[Dd]\.?",val="R1P2D"
+expression="[Oo][Tt][Hh][Ee][Rr] [ ]*[Dd][Aa][Yy][Ss]?",val="R1P2D"
+//q.a.c.
+expression="[Qq]?\.?[ ]?[Aa]\.?[Cc]\.?",val="R1P8H"
+//m , w , f
+expression="[Mm][ ]?,[ ]?[Ww][ ]?,[ ]?[Ff]",val="R3P1W"
+//wed and thu
+expression="%WeekDay[ ]?and[ ]?%WeekDay",val="R2P1W"
+//every monday , wednesday , and friday
+expression="%Per[ ]?%WeekDay[ ]?,?[ ]?%WeekDay[ ]?,?[ ]?and[ ]?%WeekDay",val="R3P1W"
+expression="%WeekDay[ ]*,?[ ]*%WeekDay[ ]*,?[ ]*\w+[ ]*%WeekDay",val="R3P1W"
+//nightly on tuesdays , thursdays , saturday and sunday
+expression=".*%WeekDay[ ]*,?[ ]*%WeekDay[ ]*,?[ ]*%WeekDay[ ]*,?[ ]*\w+[ ]*%WeekDay",val="R4P1W"
+expression="%WeekDay[ ]*,?[ ]*%WeekDay[ ]*,?[ ]*%WeekDay[ ]*,?[ ]*\w+[ ]*%WeekDay",val="R4P1W"
+
+expression="[Aa][Tt] [ ]*[Bb][Ee][Dd][Tt][Ii][Mm][Ee]",val="R1P24H"
+
+//with breakfast and dinner
+expression="%Eat [ ]*and [ ]*%Eat",val="R2P1D"
+expression="with[ ]*%Eat",val="R1P24H"
+expression="%Per [ ]*[Mm][Ee][Aa][Ll]",val="R3P24H"
+//pre-meal
+expression="pre[-| ]*[Mm][Ee][Aa][Ll]",val="R3P24H"
+expression="[Mm][Ee][Aa][Ll]",val="R3P24H"
+
+//before breakfast
+expression="(before|after)? [ ]*%Eat",val="R1P24H"
+expression="%Eat",val="R1P24H"
+
+//in the afternoon
+expression="(in)? [ ]*(the)? [ ]*%DaySection",val="R1P24H"
+//in the morning as well as the night
+expression="(in)? [ ]*(the)? [ ]*%DaySection [ ]*as [ ]*well [ ]*as (the)?[ ]*%DaySection",val="R2P1D"
+//@noon
+expression="@?%DaySection",val="R1P24H"
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//TID ( 3 times a day ) for 3 days"
+expression="%FREQword [ ]*\(.*?\)[ ]*[Ff][Oo][Rr] [ ]*(\d+) [ ]*[Dd][Aa][Yy][Ss]?",val="FREQFOR|%NormFREQword(group(1))|group(2)|D" 
+//ad lib
+expression="[Aa][Dd] [ ]*[Ll][Ii][Bb]",val="R",mod="NA"
+//q day times three months
+expression="q day times (%NumWord2D|%NumWord1D) months?",val="QDM|%NormNum(group(1))"
+
+//q.24h. x3 days
+expression="[Qq]\.?[ ]*(\d+)[ ]*[Hh]\.? [Xx](\d+) days?",val="Rgroup(2)Pgroup(1)H"
+//q.8h.
+expression="[Qq]\.?[ ]*(\d+)[ ]*[Hh]\.?",val="R1Pgroup(1)H"
+//q four H
+expression="[Qq]\.?[ ]*(%NumWord2D|%NumWord1D)[ ]*[Hh]",val="R1P%NormNum(group(1))H"
+//q 3 months
+expression="[Qq]\.?[ ]*(%NumWord2D|%NumWord1D)[ ]*%DayUnit",val="R1P%NormNum(group(1))%NormDayUnit(group(4))"
+expression="[Qq]\.?[ ]*(\d+)[ ]*%DayUnit",val="R1Pgroup(1)%NormDayUnit(group(2))"
+//q5min x 3 
+expression="[Qq]\.?[ ]*(\d+)[ ]*[Mm][Ii][Nn]\.? [Xx][ ]*(\d+)",val="Rgroup(2)Pgroup(1)M"
+
+//x 2 | x4
+expression="[Xx][ ]*(\d+)",val="Rgroup(1)"
+expression="[Xx][ ]*(%NumWord2D|%NumWord1D)",val="R%NormNum(group(1))"
+
+//QID ( 4 times a day
+expression="[Qq]\.?[Ii]\.?[Dd]\.?[ ]*\((.*?)\)",val="R1P6H"
+//TID ( 3 times a day )
+expression="[Tt]\.?[Ii]\.?[Dd]\.[ ]*\((.*?)\)?",val="R1P8H"
+
+// 3 times daily
+expression="(\d+)[ ]+times[ ]*%DayUnitLy",val="Rgroup(1)P1%NormDayUnitLy(group(2))"
+expression="(%NumWord2D|%NumWord1D)[ ]+times [ ]*%DayUnitLy",val="R%NormNum(group(1))P1%NormDayUnitLy(group(4))"
+// 3 times 
+expression="(\d+)[ ]+times",val="Rgroup(1)"
+expression="(%NumWord2D|%NumWord1D)[ ]+times",val="R%NormNum(group(1))"
+
+//3 x a day
+expression="(\d+)[ ]*[Xx] [ ]*%Per [ ]*%DayUnit",val="Rgroup(1)P1%NormDayUnit(group(3))"
+//3 x daily
+expression="(\d+)[ ]*[Xx][ ]*%DayUnitLy",val="Rgroup(1)P1%NormDayUnitLy(group(2))"
+// 5 x
+expression="(\d+)[ ]+[Xx]",val="Rgroup(1)"
+expression="(%NumWord2D|%NumWord1D)[ ]+[Xx]",val="R%NormNum(group(1))"
+
+// q12
+expression="q(\d+)",val="Rgroup(1)H"
+
+//gravida IV , para III
+// IV | 1-10
+expression="[Gg][Rr][Aa][Vv][Ii][Dd][Aa] [ ]*%FREQAlaphaNum",val="R%NormFREQAlaphaNum(group(1))"
+expression="[Pp][Aa][Rr][Aa] [ ]*%FREQAlaphaNum",val="R%NormFREQAlaphaNum(group(1))"
+expression="[Aa][Bb][Oo][Rr][Tt][Uu][Ss] [ ]*%FREQAlaphaNum",val="R%NormFREQAlaphaNum(group(1))"
+
+//q. 4-6 hour
+expression="[Qq]\.?[ ]*(\d+)[ ]*-[ ]*(\d+)[ ]*%TimeUnit",val="R1Pgroup(1)-group(2)%NormTimeUnit(group(3))",mod="APPROX"
+///q 6-8 hours p.r.n.
+expression="[Qq]\.? [ ]*(\d+)[ ]*-[ ]*(\d+) [ ]*%TimeUnit [ ]*[Pp]\.[Rr]\.[Nn]\.?",val="R1Pgroup(1)-group(2)%NormTimeUnit(group(3))",mod="APPROX"
+//q bedtime 
+expression="[Qq]\.? [ ]*[Bb][Ee][Dd][ ]?[Tt][Ii][Mm][Ee]",val="R1P24H"
+//q d times three days
+expression="%FREQword [ ]*times? (%NumWord2D|%NumWord1D) days?",val="R%NormFREQword(group(1))P%NormNum(group(2))D"
+
+//three times a week
+expression="(%NumWord2D|%NumWord1D) [ ]*[Tt][Ii][Mm][Ee][Ss]? [ ]%Per [ ]*%DayUnit",val="R%NormNum(group(1))P1%NormDayUnit(group(5))"
+expression="(\d+) [ ]*[Tt][Ii][Mm][Ee][Ss]? [ ]%Per [ ]*%DayUnit",val="Rgroup(1)P1%NormDayUnit(group(3))"
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// every | each
+//every six hours
+//every one to two hours
+expression="[Ee][Vv][Ee][Rr][Yy] [ ]*(%NumWord2D|%NumWord1D) to (%NumWord2D|%NumWord1D) %TimeUnit",val="R1P%NormNum(group(1))-%NormNum(group(4))%NormTimeUnit(group(7))",mod="APPROX"
+expression="[Ee][Vv][Ee][Rr][Yy] [ ]*(%NumWord2D|%NumWord1D)[ ]*-[ ]*(%NumWord2D|%NumWord1D) %TimeUnit",val="R1P%NormNum(group(1))-%NormNum(group(4))%NormTimeUnit(group(7))",mod="APPROX"
+expression="[Ee][Vv][Ee][Rr][Yy] [ ]*(\d+) [ ]*to[ ]* (\d+) %TimeUnit",val="R1Pgroup(1)-group(2)%NormTimeUnit(group(3))",mod="APPROX"
+expression="[Ee][Vv][Ee][Rr][Yy] [ ]*(\d+)[ ]*-[ ]*(\d+) %TimeUnit",val="R1Pgroup(1)-group(2)%NormTimeUnit(group(3))",mod="APPROX"
+
+expression="(([Ee][Vv][Ee][Rr][Yy])|([Ee][Aa][Cc][Hh])) [ ]*(\d+) [ ]*%TimeUnit",val="R1Pgroup(4)%NormTimeUnit(group(5))"
+expression="(([Ee][Vv][Ee][Rr][Yy])|([Ee][Aa][Cc][Hh])) [ ]*(%NumWord2D|%NumWord1D) [ ]*%TimeUnit",val="R1P%NormNum(group(4))%NormTimeUnit(group(7))"
+//q. 8 hours
+expression="[Qq]\.?[ ]*(\d+) %TimeUnit",val="R1Pgroup(1)%NormTimeUnit(group(2))"
+expression="[Qq]\.? (%NumWord2D|%NumWord1D) %TimeUnit",val="R1P%NormNum(group(1))%NormTimeUnit(group(4))"
+//every day
+expression="(([Ee][Vv][Ee][Rr][Yy])|([Ee][Aa][Cc][Hh]))[ ]*%DayUnit",val="R1P1%NormDayUnit(group(4))"
+//every evening
+expression="%Per [ ]*%DaySection",val="R1P1%NormDaySection(group(2))"
+//every week
+expression="%Per [ ]*%DayUnit",val="R1P1%NormDayUnit(group(2))"
+// an hour
+expression="%Per [ ]*%TimeUnit",val="R1P1%NormTimeUnit(group(2))"
+
+// every three months
+expression="(([Ee][Vv][Ee][Rr][Yy])|([Ee][Aa][Cc][Hh]))[ ]+(%NumWord1D|%NumWord2D)[ ]+%DayUnit",val="R1P%NormNum(group(4))%NormDayUnit(group(7))",mod="APPROX"
+expression="(([Ee][Vv][Ee][Rr][Yy])|([Ee][Aa][Cc][Hh]))[ ]+(\d+)[ ]+%DayUnit",val="R1Pgroup(4)%NormDayUnit(group(5))",mod="APPROX"
+
+//every other day
+expression="[Ee][Vv][Ee][Rr][Yy] [ ]*[Oo][Tt][Hh][Ee][Rr] [ ]*%DayUnit",val="R1P2%NormDayUnit(group(1))"
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//q  N to N 
+//q. four to six hours
+expression="[Qq]\.?[ ]*(%NumWord1D|%NumWord2D)[ ]*(([Tt][Oo])|(-))?[ ]*(%NumWord1D|%NumWord2D) [ ]*%TimeUnit",val="R1P%NormNum(group(1))-%NormNum(group(7))%NormTimeUnit(group(10))",mod="APPROX"
+//2-3 shots per day N to N shots
+expression="(\d+)-(\d+) shots? (per|every|a) day",val="Rgroup(2)P24H",mod="APPROX"
+
+// a day
+expression="a[ ]+%DayUnit",val="EVERY|1|%NormDayUnit(group(1))"
+
+// 2 6 week courses | 
+expression="(\d+)[ ]+(\d+) %DayUnit [Cc][Oo][Uu][Rr][Ss][Ee][Ss]?",val="Rgroup(1)Pgroup(2)%NormDayUnit(group(3))"
+expression="(%NumWord2D|%NumWord1D)[ ]+(\d+) %DayUnit [Cc][Oo][Uu][Rr][Ss][Ee][Ss]?",val="R%NormNum(group(1))Pgroup(4)%NormDayUnit(group(5))"
+expression="(\d+)[ ]+(%NumWord2D|%NumWord1D) %DayUnit [Cc][Oo][Uu][Rr][Ss][Ee][Ss]?",val="Rgroup(1)P%NormNum(group(2))%NormDayUnit(group(5))"
+expression="(%NumWord2D|%NumWord1D)[ ]+(%NumWord2D|%NumWord1D) %DayUnit [Cc][Oo][Uu][Rr][Ss][Ee][Ss]?",val="R%NormNum(group(1))P%NormNum(group(4))%NormDayUnit(group(7))"
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//once a day
+expression="[Oo]nce [ ]*%Per [ ]*%DayUnit",val="R1P1%NormDayUnit(group(2))"
+expression="[Tt]wice [ ]*%Per [ ]*%DayUnit",val="R2P1%NormDayUnit(group(2))"
+expression="(%NumWord1D|%NumWord2D) [ ]*times? [ ]*%Per [ ]*%DayUnit",val="R%NormNum(group(1))P1%NormDayUnit(group(5))"
+expression="([\d]+) [ ]*[Tt][Ii][Mm][Ee][Ss]? [ ]*%Per [ ]*%DayUnit",val="Rgroup(1)P1%NormDayUnit(group(3))"
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//a regular basis
+expression="[Aa] [ ]*[Rr][Ee][Gg][Uu][Ll][Aa][Rr] [ ]*[Bb][Aa][Ss][Ii][Ss]",val="RP30D",mod="APPROX"
+
+
+//one episode
+expression="[Oo][Nn][Ee] [ ]*[Ee][Pp][Ii][Ss][Oo][Dd][Ee]",val="R1"
+
+//times 30 days
+//times three months
+expression="times (\d+) days?",val="RPgroup(1)H"
+expression="times (%NumWord2D|%NumWord1D) days?",val="RP%NormNum(group(1))H"
+
+//many times
+expression="[Mm]any times",val="R3",mod="APPROX"
+
+//times 3
+expression="times (\d+)",val="Rgroup(1)"
+expression="times (%NumWord2D|%NumWord1D)",val="R%NormNum(group(1))"
+
+//at night
+expression="[Aa]t night",val="RP1D",mod="END"
+
+//per day
+expression="[Pp][Ee][Rr] [ ]*[Dd][Aa][Yy]",val="RP1D"
+//x 3-4 per nigh
+expression="([Xx] )?[ ]*(\d+)-(\d+) [ ]*%Per %DaySection",val="Rgroup(2)-group(3)P1%NormDaySection(group(5))",mod="APPROX"
+
+//four doses
+expression="(%NumWord2D|%NumWord1D) [Dd][Oo][Ss][Ee][Ss]",val="R%NormNum(group(1))"
+
+// twice daily | once daily
+expression="[Oo]nce[ ]+%FREQDayUnit",val="R1P1%NormFREQDayUnit(group(1))"
+expression="[Tt]wice[ ]+%FREQDayUnit",val="R2P1%NormFREQDayUnit(group(1))"
+expression="(%NumWord1D|%NumWord2D)[ ]+times?[ ]+%",val="R%NormNum(group(1))P1%NormFREQDayUnit(group(4))"
+expression="(\d+)[ ]+times?[ ]+%FREQDayUnit",val="Rgroup(1)P1%NormFREQDayUnit(group(2))"
+
+//DAILY ( Daily" 23:14 23:16
+expression="[Dd][Aa][Ii][Ll][Yy] [ ]*\((.*?)\)",val="R1P24H"
+
+//daily
+expression="%DayUnitLy",val="R1P1%NormDayUnitLy(group(1))"
+//nightly
+expression="%DaySectionLy",val="R1P1%NormDaySectionLy(group(1))"
+//weekday
+expression="%WeekDay",val="R1P1W"

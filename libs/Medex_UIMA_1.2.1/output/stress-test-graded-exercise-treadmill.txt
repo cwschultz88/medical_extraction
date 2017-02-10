@@ -1,0 +1,1 @@
+1	~~~ --> 				<p><b>INDICATIONS:</b>  Chest pain.</p> <p><b>PROCEDURE DONE:</b>  Graded exercise treadmill stress test.</p> <p><b>STRESS ECG RESULTS:</b>  The patient was stressed by continuous graded treadmill testing for nine minutes of the standard Bruce protocol.|ECG[135,138]|||||||nine minutes[221,233]|||||

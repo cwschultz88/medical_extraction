@@ -1,0 +1,5 @@
+NormAction:
+transfer=>TRANSFER
+admission=>ADMISSION
+discharge=>DISCHARGE
+surgery=>SURGERY
