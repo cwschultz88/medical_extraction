@@ -1,8 +1,0 @@
-9	</p> <p><b>PROCEDURE:  </b>The patient was taken to the operating room where a general anesthetic was administered.|general anesthetic[736,754]||||||||||4740|4740|general anesthetic
-11	Once the anesthetic was found to be adequate, a bimanual exam was performed under anesthetic.|anesthetic[895,905]||||||||||817|817|anesthetic
-11	Once the anesthetic was found to be adequate, a bimanual exam was performed under anesthetic.|anesthetic[968,978]||||||||||817|817|anesthetic
-18	The cervix was seemed to be hemostatic.|hemostatic[1713,1723]||||||||||5220|5220|hemostatic
-20	The patient was given 0.25 mg of Methergine IM approximately half-way through the procedure.|Methergine[1795,1805]|||0.25mg[1784,1791]||IM[1806,1808]|||||996830|6883|methylergonovine
-25	She was given Methergine, Motrin, and doxycycline for her postoperative care.|Methergine[2170,2180]|||||||||C0733811|227555|6883|methylergonovine
-25	She was given Methergine, Motrin, and doxycycline for her postoperative care.|Motrin[2182,2188]|||||||||C0699203|202488|5640|ibuprofen
-25	She was given Methergine, Motrin, and doxycycline for her postoperative care.|doxycycline[2194,2205]|||||||||C0013090|3640|3640|doxycycline

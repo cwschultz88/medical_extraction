@@ -15,3 +15,4 @@ To run a unit test:
 python -m unittest tests.data.input_data_extractors_tests
 ```
 
+Must have java >= 1.7 on machine
