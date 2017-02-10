@@ -1,7 +1,7 @@
 import datetime
 
 
-class MedicalReportData(object):
+class MedicalReport(object):
     '''
     Stores data extracted from input medical reports
     '''
