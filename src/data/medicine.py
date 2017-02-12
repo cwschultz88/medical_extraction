@@ -1,7 +1,7 @@
 class Medicine(object):
     def __init__(self, identification_name):
         self.identification_name = identification_name
-        self.brand_names = set()
+        self.brand_names = []
         self.dosages = []
 
     def __repr__(self):
@@ -13,4 +13,5 @@ class Medicine(object):
 
     def add_brand_name(self, brand_name):
         if brand_name:
-            self.brand_names.add(brand_name)
+            self.brand_names.append(brand_name)
+            self.brand_names = list(set(self.brand_names))

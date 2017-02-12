@@ -15,10 +15,10 @@ class MedexExtractorTests(unittest.TestCase):
         '''
         reports = [retrieve_medical_report_localfile(test_report_name) for test_report_name in self.test_report_names]
 
-        MedexExtractor.extract_info(reports)
+        extracted_medicines = MedexExtractor.extract_info(reports)
 
-        self.assertEqual(1,1)
-
+        # make sure have a list of medicine for each report
+        self.assertEqual(len(extracted_medicines), len(reports))
 
 
 if __name__ == '__main__':

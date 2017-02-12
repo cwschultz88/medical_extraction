@@ -29,7 +29,6 @@ class MedexExtractor(IInfoExtractor):
         medicines_in_reports = []
         for i in xrange(len(medical_reports)):
             medicines_in_this_report_dict = {}
-            medicines_in_reports.append(medicines_in_this_report_dict)
             with open('libs/Medex_UIMA_1.2.1/output/report_' + str(i) + '.txt', 'r') as output_file:
                 for medicine_tagged_line in output_file:
                     split_medicine_line = medicine_tagged_line.split('|')
@@ -55,6 +54,7 @@ class MedexExtractor(IInfoExtractor):
 
                     medicine.add_brand_name(brand_name)
                     medicine.add_dosage(dosage_type, dosage_amount)
+            medicines_in_reports.append(medicines_in_this_report_dict.values())
 
         # clean up medex input and output files
         for i in xrange(len(medical_reports)):
