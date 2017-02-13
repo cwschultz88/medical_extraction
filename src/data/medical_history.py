@@ -2,10 +2,10 @@ class MedicalHistory(object):
     '''
     Stores a patient's medical history
     '''
-    def __int__(self):
+    def __init__(self):
         self.entries = {}
 
-    def add_entry(date, entry_details_dict):
+    def add_entry(self, date, entry_details_dict):
         '''
         Adds to entry ro medical history
 

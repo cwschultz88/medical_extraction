@@ -15,6 +15,10 @@ def retrieve_medical_report_localfile(report_filename):
     return report_retriever.get_medical_report()
 
 
+def retrieve_medical_reports_localfiles(report_filenames):
+    return [retrieve_medical_report_localfile(filename) for filename in report_filenames]
+
+
 class CannotHandleFileType(Exception):
     '''
     Should be raised by RetrieveMedicalReportExtractor Factory
